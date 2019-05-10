@@ -56,7 +56,7 @@ namespace TwitchBot
 
         public void Quote()
         {
-            StreamReader quoteReader = new StreamReader(@"C:\Users\nicho\source\repos\TwitchBot\Quote.txt");
+            StreamReader quoteReader = new StreamReader(@"C:\Users\nicho\source\repos\MeleeOnlyBot\Quote.txt");
 
             string quote = "No quotes have been added yet";
             string line = "";
@@ -81,7 +81,7 @@ namespace TwitchBot
         {
             string quote = message.Substring(message.IndexOf("~addquote") + 10);
 
-            using (StreamWriter quoteWriter = File.AppendText(@"C:\Users\nicho\source\repos\TwitchBot\Quote.txt"))
+            using (StreamWriter quoteWriter = File.AppendText(@"C:\Users\nicho\source\repos\MeleeOnlyBot\Quote.txt"))
             {
                 quoteWriter.WriteLine(quote);
             }
@@ -96,9 +96,9 @@ namespace TwitchBot
             if (quoteNumber.All(Char.IsDigit))
             {
                 int lineToDelete = int.Parse(quoteNumber);
-                using (StreamReader reader = new StreamReader(@"C:\Users\nicho\source\repos\TwitchBot\Quote.txt"))
+                using (StreamReader reader = new StreamReader(@"C:\Users\nicho\source\repos\MeleeOnlyBot\Quote.txt"))
                 {
-                    using (StreamWriter writer = new StreamWriter(@"C:\Users\nicho\source\repos\TwitchBot\TempQuote.txt"))
+                    using (StreamWriter writer = new StreamWriter(@"C:\Users\nicho\source\repos\MeleeOnlyBot\TempQuote.txt"))
                     {
                         while ((line = reader.ReadLine()) != null)
                         {
@@ -112,13 +112,13 @@ namespace TwitchBot
                     }
                 }
                 File.Delete(@"C:\Users\nicho\source\repos\TwitchBot\Quote.txt");
-                File.Move(@"C:\Users\nicho\source\repos\TwitchBot\TempQuote.txt", @"C:\Users\nicho\source\repos\TwitchBot\Quote.txt");
+                File.Move(@"C:\Users\nicho\source\repos\TwitchBot\TempQuote.txt", @"C:\Users\nicho\source\repos\MeleeOnlyBot\Quote.txt");
             }
         }
 
         public void EightBall()
         {
-            StreamReader answerReader = new StreamReader(@"C:\Users\nicho\source\repos\TwitchBot\EightBall.txt");
+            StreamReader answerReader = new StreamReader(@"C:\Users\nicho\source\repos\MeleeOnlyBot\EightBall.txt");
 
             string answer = "";
             string line = "";
@@ -139,7 +139,7 @@ namespace TwitchBot
 
         public void Superpower(string message)
         {
-            StreamReader powerReader = new StreamReader(@"C:\Users\nicho\source\repos\TwitchBot\Powers.txt");
+            StreamReader powerReader = new StreamReader(@"C:\Users\nicho\source\repos\MeleeOnlyBot\Powers.txt");
 
             string power = "";
             string line = "";
